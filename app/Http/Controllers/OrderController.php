@@ -41,8 +41,14 @@ class OrderController extends Controller
 
     public function calculate_Total($uniqItemWithCount){
         $total = 0;
+        
         foreach($uniqItemWithCount as $row){
-            $product = Product::findOrFail($row['id']);
+            try{
+                $product = Product::findOrFail($row['id']);
+            }catch(Throwable $e){
+                return $e;
+            }
+            
             $pricingRule = $product->PricingRules;
             if($pricingRule->min_quan <= $row['count']){
                 if($pricingRule->type == "Bundle"){
@@ -58,4 +64,5 @@ class OrderController extends Controller
         }
         return $total;
     }
+    
 }
