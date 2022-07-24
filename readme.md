@@ -1,12 +1,19 @@
 This is just Pricing rules Proof Of Concept
 
 Steps after Cloning or download the project from github
+
 1.Go to the folder application using "cd" command on your cmd or terminal
+
 2.Copy .env.example file to .env on the root folder. You can type copy .env.example .env if using command prompt Windows or cp .env.example .env if using terminal,   Ubuntu
+
 3.Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration. (I'm using MYSQL for this project)
+
 4.Run php artisan key:generate (if warning is showed that failed opening required ...autoload.php, kindly run this command "composer update --no-scripts")
+
 5.Run php artisan migrate
+
 6.Run php artisan db:seed
+
 7.Run php artisan serve
 
 
